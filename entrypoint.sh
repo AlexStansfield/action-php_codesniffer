@@ -7,5 +7,5 @@ fi
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
-php /usr/local/bin/phpcs.phar --report=checkstyle \
+php /usr/local/bin/phpcs.phar --report=checkstyle -q \
   | reviewdog -name=PHP_CodeSniffer -f=checkstyle -reporter=${INPUT_REPORTER} -level=${INPUT_LEVEL} -diff='git diff'
